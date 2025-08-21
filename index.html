@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DbD Pathing Helper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>DbD Pathing Helper</h1>
+    </header>
+
+    <div class="controls">
+        <label for="mapSelect">Select Map:</label>
+        <select id="mapSelect" onchange="changeMap()">
+            <option value="">--Select Map--</option>
+        </select>
+
+        <div class="buttons">
+            <button onclick="selectObject('hook')" title="Place Hook">Hook</button>
+            <button onclick="selectObject('gen')" title="Place Generator">Gen</button>
+            <button onclick="selectObject('pallet')" title="Place Pallet">Pallet</button>
+            <button onclick="selectObject('killer')" title="Place Killer">Killer</button>
+            <button onclick="drawPathMode()" title="Draw Survivor Path">Draw Path</button>
+            <button onclick="drawKillerPathMode()" title="Draw Killer Path">Draw Killer Path</button>
+            <button onclick="clearPath()" title="Clear all paths">Clear Paths</button>
+            <button onclick="clearObjects()" title="Clear all objects">Clear Objects</button>
+        </div>
+    </div>
+
+    <canvas id="mapCanvas"></canvas>
+
+    <div id="infoBox">
+        <h3>Info</h3>
+        <p>
+            Place hooks, pallets, generators, and the killer on the map. Draw survivor paths and killer paths as smooth freehand lines.
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

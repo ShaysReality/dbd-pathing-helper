@@ -1,0 +1,16 @@
+
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+
+node_modules/
+
+
+*.log
+
+
+Thumbs.db
+.DS_Store

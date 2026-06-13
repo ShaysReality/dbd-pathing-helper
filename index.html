@@ -2,40 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DbD Pathing Helper</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>DbD Pathing Helper</h1>
-    </header>
+    <main class="wrap">
+        <header class="topbar">
+            <div>
+                <p class="tag">DBD PATHING</p>
+                <h1>Pathing Helper</h1>
+            </div>
+            <p id="toolStatus" class="tool-readout">Tool: Hook</p>
+        </header>
 
-    <div class="controls">
-        <label for="mapSelect">Select Map:</label>
-        <select id="mapSelect" onchange="changeMap()">
-            <option value="">--Select Map--</option>
-        </select>
+        <div class="layout">
+            <aside class="map-panel" aria-label="Map browser">
+                <div class="field">
+                    <label for="mapSearch">Search maps</label>
+                    <input id="mapSearch" type="search" placeholder="Search map or realm">
+                </div>
 
-        <div class="buttons">
-            <button onclick="selectObject('hook')" title="Place Hook">Hook</button>
-            <button onclick="selectObject('gen')" title="Place Generator">Gen</button>
-            <button onclick="selectObject('pallet')" title="Place Pallet">Pallet</button>
-            <button onclick="selectObject('killer')" title="Place Killer">Killer</button>
-            <button onclick="drawPathMode()" title="Draw Survivor Path">Draw Path</button>
-            <button onclick="drawKillerPathMode()" title="Draw Killer Path">Draw Killer Path</button>
-            <button onclick="clearPath()" title="Clear all paths">Clear Paths</button>
-            <button onclick="clearObjects()" title="Clear all objects">Clear Objects</button>
+                <div class="quick-row">
+                    <button id="showAllMaps" type="button">All maps</button>
+                    <button id="showFavMaps" type="button">Favorites</button>
+                </div>
+
+                <div id="lastMap" class="last-map">Last map: none</div>
+                <div id="realmList"></div>
+            </aside>
+
+            <section>
+                <section class="controls" aria-label="Drawing controls">
+                    <div class="tool-group">
+                        <p>Objects</p>
+                        <button class="tool-btn" data-tool="hook">Hook</button>
+                        <button class="tool-btn" data-tool="gen">Gen</button>
+                        <button class="tool-btn" data-tool="pallet">Pallet</button>
+                        <button class="tool-btn" data-tool="killer">Killer</button>
+                    </div>
+
+                    <div class="tool-group">
+                        <p>Draw</p>
+                        <button class="tool-btn" data-tool="survivorPath">Surv path</button>
+                        <button class="tool-btn" data-tool="killerPath">Killer path</button>
+                        <button class="tool-btn erase" data-tool="erase">Erase brush</button>
+                    </div>
+
+                    <div class="field small-field">
+                        <label for="brushSize">Brush <span id="brushSizeValue">28</span></label>
+                        <input type="range" id="brushSize" min="4" max="80" value="28">
+                    </div>
+
+                    <div class="action-row">
+                        <button id="undoBtn" type="button">Undo</button>
+                        <button id="clearPathsBtn" type="button">Clear paths</button>
+                        <button id="clearObjectsBtn" type="button">Clear objects</button>
+                        <button id="resetBtn" type="button" class="bad">Reset</button>
+                    </div>
+                </section>
+
+                <section class="map-card">
+                    <canvas id="mapCanvas"></canvas>
+                    <div id="emptyState" class="empty-state">
+                        <h2>No map selected</h2>
+                        <p>Pick a map, then drop icons or draw routes.</p>
+                    </div>
+                </section>
+
+                <section class="notes">
+                    <p><b>Tip:</b> Brush size changes path thickness and erase radius. Drag placed icons to move them.</p>
+                </section>
+            </section>
         </div>
-    </div>
-
-    <canvas id="mapCanvas"></canvas>
-
-    <div id="infoBox">
-        <h3>Info</h3>
-        <p>
-            Place hooks, pallets, generators, and the killer on the map. Draw survivor paths and killer paths as smooth freehand lines.
-        </p>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>

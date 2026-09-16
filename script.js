@@ -34,7 +34,7 @@ const MAP_DATA = {
         "Silent Hill",
         "Tomb of the Forgotten",
         "Five Nights at Freddy\u2019s",
-        "The Shattered Realm",
+        "The Sleepless District",
         "Other"
     ],
     "maps": [
@@ -70,7 +70,7 @@ const MAP_DATA = {
         },
         {
             "name": "Dead Sands",
-            "realm": "Tomb of the Forgotten",
+            "realm": "Forsaken Boneyard",
             "src": "maps/clock/Dead Sands.webp"
         },
         {
@@ -320,7 +320,7 @@ const MAP_DATA = {
         },
         {
             "name": "Tricksters Delusion",
-            "realm": "The Shattered Realm",
+            "realm": "The Sleepless Districtg",
             "src": "maps/clock/Tricksters Delusion.webp"
         },
         {
